@@ -1,0 +1,185 @@
+.header{
+  display: flex;
+  width: calc(100% - #{$w-sidebar});
+  background-color: #0D0D0D;
+  box-shadow: 0 5px 22px rgba($color: black, $alpha: .25);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $zi-header;
+
+  @include breakpoint($tablet-bp){
+    width: 100%;
+  }
+}
+.header__left{
+  width: 60%;
+  @include breakpoint($tablet-bp){
+    width: 40%;
+  }
+}
+.header__right{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  @include breakpoint($tablet-bp){
+    width: 60%;
+  }
+}
+
+.nav{
+  &--mobile{
+    display: none;
+  }
+  @include breakpoint($tablet-bp){
+    display: none;
+    &--mobile{
+    display: block;
+    margin: 3rem 0;
+    }
+  }
+}
+
+.nav__list{
+  display: flex;
+
+  @include breakpoint($tablet-bp){
+    flex-direction: column;
+  }
+}
+
+.nav__item{
+  position: relative;
+
+&:hover{
+  .nav__link{
+    background-color: $blue;   
+  }
+
+  > .sub__nav{
+    display: block;
+    
+  }
+}
+
+@include breakpoint($tablet-bp){
+  &:hover{
+    .nav__link{
+      background: none;
+  }
+}
+}
+}
+.nav__link{
+  padding: 1.35rem;
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $white;
+  transition: all .2s linear;
+
+  &:hover{
+    background-color: $blue;
+    text-decoration: none;
+  }
+
+  &.has__subnav{
+    position: relative;
+    padding-right: 3.5rem;
+    &::after{
+      content:"";
+      display: block;
+      margin-top: 2px;
+      border-style: solid;
+      border-width: 6px 5px 0 5px;
+      border-color: rgba($white, 100%) transparent transparent transparent;
+      
+      position: absolute;
+      top: 50%;
+      right: 1.35rem;
+      transform: translateY(-50%);
+    }
+  }
+
+  @include breakpoint($tablet-bp){
+    padding: 1.10rem 0;
+
+    font-size: 1.6rem;
+  }
+}
+
+.sub__nav{
+display: none;
+width: 16.5rem;
+padding: 0.5rem 0;
+background-color: $blue;
+border-radius: 0 0 5px 5px;
+box-shadow: 0 6px 8px rgba($color: $black, $alpha: .2);
+
+position: absolute;
+top: 100%;
+left: 0;
+
+@include breakpoint($tablet-bp){
+  position: static;
+  width: 100%;
+  padding-left: 1rem;
+
+  background-color: transparent;
+  box-shadow: none;
+}
+}
+
+.sub__nav__link{
+  display: block;
+  padding: .45rem 1.2rem;
+  color: $white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+  &:hover{
+    background-color: darken($blue, 5%);
+    text-decoration: none;
+  }
+  @include breakpoint($tablet-bp){
+    padding-left: 0;
+    padding-right: 0;
+
+    font-size: 1.5rem;
+
+    &:hover{
+      background: none;
+    }
+  }
+
+}
+
+.search{
+  background-color: $primary;
+  max-width: 21rem;
+  width: 100%;
+}
+.search__input{
+  display: block;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: transparent;
+  border: none;
+
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: $white;
+
+  &::placeholder{
+    color: rgba($white, .4);
+  }
+
+  @include breakpoint($tablet-bp){
+    height: 4rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+   font-size: 1.6rem;
+  }
+}
+

@@ -1,0 +1,57 @@
+@import "vars";
+@import "mixins";
+@import "vendor/reset.scss";
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #181818;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    color: white;
+    
+    &.no-scroll {
+       overflow: hidden;
+    }
+
+    @include breakpoint($tablet-bp){
+        &.show-sidebar {
+            overflow: hidden;
+         }
+       }
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+// blocks
+@import "blocks/page";
+@import "blocks/header";
+@import "blocks/burger";
+@import "blocks/sidebar";
+@import "blocks/main";
+@import "blocks/container";
+@import "blocks/stories";
+@import "blocks/add__post";
+@import "blocks/post";
+@import "blocks/embed";
+@import "blocks/pagination";
+@import "blocks/related";
+@import "blocks/comments";
+@import "blocks/form";
+@import "blocks/btn";
+@import "blocks/works";
+@import "blocks/cabinet";
+@import "blocks/modal";
